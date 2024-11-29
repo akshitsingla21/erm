@@ -1,15 +1,6 @@
 let map; // Declare map globally
 let marker = null; // Declare marker globally
-
-
-
-
-const drivers = [
-    { mobileNo: "1234567890", password: "password" },
-    { mobileNo: "9876543210", password: "driver123" }
-];
-
-
+let watchId;
 
 const mapElement = document.getElementById('map');
 console.log("Map element dimensions:", mapElement.offsetWidth, mapElement.offsetHeight);
@@ -54,27 +45,22 @@ function filterHostels() {
 
 
 
-// drivers
-
-
-
-
-
+// passengers
 
 let waitingPassengers = {};
 
 // Array of hostel locations (latitude, longitude)
 const hostelLocations = {
-    "Hostel A": [30.35133958552917, 76.36454437285103],
-    "Hostel B": [30.35118298578698, 76.36321464635124],
-    "Hostel c": [30.351311120577055, 76.36238869491908],
-    "Hostel D": [30.350882669215192, 76.36029133510257],
-    "Hostel E": [30.35476756069593, 76.3671900291355],
-    "Hostel F": [30.35472349935624, 76.35940139133767],
-    "Hostel G": [30.35476756069593, 76.3671900291355],
-    "Hostel H": [30.353187352063664, 76.36453748792752],
-    "Hostel I": [30.35476756069593, 76.3671900291355],
-    "Hostel J": [30.35297833013215, 76.36363979523249]
+    "Hostel A": [30.3510, 76.3668],
+    "Hostel B": [30.3520, 76.3678],
+    "Hostel C": [30.3530, 76.3688],
+    "Hostel D": [30.3540, 76.3698],
+    "Hostel E": [30.3550, 76.3708],
+    "Hostel F": [30.3560, 76.3718],
+    "Hostel G": [30.3570, 76.3728],
+    "Hostel H": [30.3580, 76.3738],
+    "Hostel I": [30.3590, 76.3748],
+    "Hostel J": [30.3600, 76.3758]
 };
 
 // Updated selectHostel function
@@ -94,6 +80,7 @@ function selectHostel(hostel) {
     
     console.log(`${hostel} now has ${waitingPassengers[hostel]} passenger(s) waiting.`);
 }
+
 
 window.addEventListener('click', event => {
     const dropdown = document.getElementById('dropdown2-options');
@@ -117,7 +104,17 @@ function showHome() {
 
 
 
+function driverLogin() {
+    const mobileNo = document.getElementById('mobile_no.').value;
+    const password = document.getElementById('password2').value;
 
+    if (mobileNo === "1234567890" && password === "password") {
+        alert("Login successful!");
+        showDriverInterface();
+    } else {
+        alert("Invalid credentials!");
+    }
+}
 
 
 
