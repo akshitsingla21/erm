@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TukTook App</title>
+    <link rel="stylesheet" href="style.css">   
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+
+</head>
+<body>
+
+    <!-- Home Page -->
+    <div class="container" id="home">
+        <h1>
+            <span class="large-T">T</span>uk<img src="Capture-removebg-preview.png"/><br>
+            <span class="large-T">T</span>ook
+        </h1>
+        
+        <button onclick="showPassenger()">Passenger</button>
+     
+        
+        <button onclick="showDriver()">Driver</button>
+    </div>
+
+    <!-- Passenger Signup Page -->
+    <div class="container" id="passenger" style="display: none;">
+        <h2>Create New Account</h2>
+        <p>Already Registered? <a href="#" onclick="showLogin()">Log in here.</a></p>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Name">
+            
+            <label for="email1">Email</label>
+            <input type="email" id="email1" placeholder="Enter your email" autocomplete="email">
+            
+            <label for="password1">Password</label>
+            <input type="password" id="password1" placeholder="current-password" autocomplete="current-password">
+            
+            <button type="button" onclick="signInPassenger()">Sign In</button>
+            <button onclick="showHome()">Back</button>
+        </form>
+        <!-- Sign In Button -->
+       
+
+    </div>
+
+
+    <!-- Passenger Interface Map -->
+<div id="passenger-map" style="width: 100%; height: 600px; display: none;"></div>
+
+
+    <!-- Driver Login Page -->
+    <div class="container" id="driver" style="display: none;">
+        <h2>Driver Login</h2>
+        <form onsubmit="event.preventDefault(); driverLogin();">
+            <label for="mobile_no.">Mobile No.</label>
+            <input type="number" id="mobile_no." placeholder="Enter your mobile number" autocomplete="tel">
+            
+            <label for="password2">Password</label>
+            <input type="password" id="password2" placeholder="Enter your password" autocomplete="current-password">
+            
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
+
+    <div id="driver-interface" style="display: none;">
+        <div id="map" style="height: 100vh; width: 100%;"></div>
+    </div>
+    
+   <!-- Passenger Interface Page -->
+<div class="container" id="passenger-interface" style="display: none;">
+    <h1>Welcome</h1>
+    
+
+    <!-- Search Button -->
+    <div class="dropdown2">
+        <label for="search-hostel">Search Hostels:</label>
+        <input type="text" id="search-hostel" placeholder="Type to search" oninput="filterHostels()">
+        <div id="dropdown2-options" class="dropdown2-options"></div>
+        
+      
+    </div>
+
+    <div id="passenger-interface2" style="display: none;">
+        <h1>Welcome</h1>
+        
+        <!-- Display Number of Passengers Waiting -->
+        <div id="passenger-count-display" style="font-size: 2em; font-weight: bold; text-align: center; margin: 20px 0;">
+            Passengers waiting at <span id="selected-hostel-name"></span>: <span id="passenger-count">0</span>
+        </div>
+    
+        <!-- Rest of the interface remains unchanged -->
+    </div>
+    
+
+
+    <!-- Pickup Button -->
+    
+
+    <!-- Dropdown for Hostel Names -->
+    <div class="dropdown">
+        <label for="hostel-select">Choose pickup:</label>
+        <select id="hostel-select" onchange="selectHostel(this)">
+            <option value="" disabled selected>Select Hostel</option>
+            <option value="hostel A">Hostel A</option>
+            <option value="hostel B">Hostel B</option>
+            <option value="hostel C">Hostel C </option>
+            <option value="hostel D">Hostel D</option>
+            <option value="hostel E">Hostel E</option>
+            <option value="hostel F">Hostel F</option>
+            <option value="hostel G">Hostel G</option>
+            <option value="hostel H">Hostel H</option>
+            <option value="hostel I">Hostel I</option>
+            <option value="hostel J">Hostel J</option>
+            <option value="hostel K">Hostel K</option>
+            <option value="hostel L">Hostel L</option>
+            <option value="hostel M">Hostel M</option>
+            <option value="hostel N">Hostel N</option>
+            <option value="hostel O">Hostel O</option>
+            <option value="hostel PG">Hostel PG</option>
+            <option value="hostel Q">Hostel Q</option>
+            <option value="COS">COS</option>
+            <option value="TAN">TAN</option>
+            <option value="MAIN GATE">MAIN GATE</option>
+            <option value="JAGGI">JAGGI</option>
+            <option value="B BLOCK">B BLOCK</option>
+            <option value="C BLOCK">C BLOCK</option>
+            
+        </select>
+    </div>
+      <!-- Search Result List -->
+      <ul id="search-results" class="search-results"></ul>
+      <div id="map" style="width: 100%; height: 600px; display: none;"></div>
+    
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+
+    <script>
+    function showPassenger() {
+    document.getElementById('home').style.display = 'none';
+    document.getElementById('passenger').style.display = 'block';
+    document.getElementById('driver').style.display = 'none'; // Hide driver section if previously displayed
+    document.getElementById('login').style.display = 'none'; // Hide login section if previously displayed
+}
+
+    function showDriver() {
+    document.getElementById('home').style.display = 'none';
+    document.getElementById('driver').style.display = 'block';
+    document.getElementById('passenger').style.display = 'none'; // Hide passenger section if previously displayed
+    document.getElementById('login').style.display = 'none'; // Hide login section if previously displayed
+}
+
+    function showLogin() {
+    document.getElementById('passenger').style.display = 'none';
+    document.getElementById('driver').style.display = 'none'; // Hide driver section if previously displayed
+    document.getElementById('login').style.display = 'block'; // Show login section
+}
+
+        
+    </script>
+
+
+
+
+</body>
+</html>

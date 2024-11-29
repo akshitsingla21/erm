@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #000000 50%, #01327a 75%, #00b6f1 100%);
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.container {
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+}
+
+.large-T {
+    font-size: 7rem;
+    margin-right: -20px;
+}
+
+h1 {
+    font-size: 5rem;
+    color: #47d7dc;
+    line-height: 1;
+    margin-bottom: 50px;
+}
+
+img {
+    max-height: 50px;
+    margin-bottom: -5px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    margin-inline: 30px;
+}
+
+p {
+    color: #e0e0e0; /* Improved contrast */
+    margin: 10px 0;
+    margin-bottom: 30px;
+    margin-top: -15px;
+}
+
+a {
+    color: #00c9ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffffff; /* Improved hover contrast */
+    text-decoration: underline;
+}
+
+button {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px;
+    margin: 20px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #cccccc;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #ffffff; /* Improved contrast */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #dddddd;
+    font-size: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input::placeholder {
+    color: #666666;
+}
+
+input:focus {
+    outline: none;
+    border-color: #00c9ff;
+    box-shadow: 0 2px 5px rgba(0, 169, 255, 0.3);
+}
+
+#passenger button,
+#driver button {
+    background-color: #41dadd;
+    color: #080707;
+    font-weight: bold;
+    max-width: 150px;
+}
+
+#passenger button {
+    margin-left: 50px;
+}
+
+.dropdown {
+    margin-top: 20px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #dddddd;
+    font-size: 1rem;
+    color: #333333;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: 2px solid #00c9ff;
+}
+
+.dropdown2 {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+}
+
+#search-hostel {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#search-hostel:focus {
+    border-color: #00c9ff;
+    box-shadow: 0 2px 5px rgba(0, 169, 255, 0.3);
+}
+
+.dropdown2-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0 0 5px 5px;
+    display: none; /* Hidden initially */
+    z-index: 1;
+    color: #000000;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.dropdown2-options div {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.dropdown2-options div:hover {
+    background-color: #41dadd;
+    color: #fff;
+}
+
+#driver-interface {
+    display: none; /* Initially hidden */
+    height: 100%; /* Ensure it occupies full space */
+    width: 100%;
+}
+
+#map {
+    height: 100vh; /* Ensure the map takes full height of the viewport */
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    body {
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+
+    #map {
+        height: 50vh;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
